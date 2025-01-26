@@ -9,6 +9,11 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return ('admin.category.index');
+        return view('admin.category.index');
+    }
+
+    public function create()
+    {
+        return view('admin.category.create');
     }
 }
