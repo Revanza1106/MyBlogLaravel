@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CategoryFormRequest;
 use App\Models\Category;
-use Illuminate\Support\Facades\File; 
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
@@ -89,5 +87,21 @@ class CategoryController extends Controller
         $category->update();
 
         return redirect('admin/category')->with('message', 'Category updated successfully');
+    }
+
+    public function destroy($category_id)
+    {
+        $category = Category::find($category_id);
+        if ($category) {
+            $destination = 'uploads/category/' . $category->image;
+            if (File::exists($destination)) {
+                File::delete($destination);
+            }
+
+            $category->delete();
+            return redirect('admin/category')->with('message', 'Category delete successfully');
+        } else {
+            return redirect('admin/category')->with('message', 'No category Id not fou');
+        }
     }
 }
