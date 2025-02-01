@@ -21,53 +21,55 @@
                     </div>
                 @endif
 
-                <form action="{{ url('admin/add-category') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('admin/update-category/' . $category->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
+
                     <div class="mb-3">
                         <label for="">Category Name</label>
-                        <input type="text" name="name" class="form-control">
+                        <input type="text" name="name" value="{{ $category->name }}" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="">Slug</label>
-                        <input type="text" name="slug" class="form-control">
+                        <input type="text" name="slug" value="{{ $category->slug }}" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="">Description</label>
-                        <textarea name="description" class="form-control"></textarea>
+                        <textarea name="description" value="{{ $category->description }}" class="form-control"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="">Image</label>
-                        <input type="file" name="image" class="form-control">
+                        <input type="file" name="image" value="{{ $category->image }}" class="form-control">
                     </div>
 
                     <h6>SEO Tags</h6>
                     <div class="mb-3">
                         <label for="">Meta Title</label>
-                        <input type="text" name="meta_title" class="form-control">
+                        <input type="text" name="meta_title" value="{{ $category->meta_title }}" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="">Meta Description</label>
-                        <textarea name="meta_description" rows='3' class="form-control"></textarea>
+                        <textarea name="meta_description" rows='3' value="{{ $category->meta_description }}" class="form-control"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="">Meta Keyword</label>
-                        <textarea name="meta_keyword" rows='3' class="form-control"></textarea>
+                        <textarea name="meta_keyword" rows='3' value="{{ $category->meta_keyword }}" class="form-control"></textarea>
                     </div>
 
                     <h6>Status Mode</h6>
                     <div class="row">
                         <div class="col-md-3 mb-3">
                             <label for="">Navbar Status</label>
-                            <input type="hidden" name="navbar_status" value="0">
-                            <input type="checkbox" name="navbar_status" value="1">
+                            <input type="checkbox" name="navbar_status"
+                                value="{{ $category->navbar_status == '1' ? 'checked' : '' }}" />
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for=""> Status</label>
-                            <input type="hidden" name="status" value="0">
-                            <input type="checkbox" name="status" value="1">
+                            <input type="checkbox" name="status"
+                                value="{{ $category->status == '1' ? 'checked' : '' }}" />
                         </div>
                         <div class="col-md-6">
-                            <button type="submit" class="btn btn-primary" >Save Category</button>
+                            <button type="submit" class="btn btn-primary">Update Category</button>
                         </div>
                     </div>
                 </form>
