@@ -19,8 +19,8 @@
             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
 
             <div class="form-outline mb-4">
-              <input type="email" id="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
               <label class="form-label" for="email">Email address</label>
+              <input type="email" id="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
               @error('email')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -29,8 +29,8 @@
             </div>
 
             <div class="form-outline mb-4">
-              <input type="password" id="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" />
               <label class="form-label" for="password">Password</label>
+              <input type="password" id="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" />
               @error('password')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>

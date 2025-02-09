@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CategoryFormRequest;
 use App\Models\Category;
@@ -14,11 +15,11 @@ class CategoryController extends Controller
         $category = Category::all();
         return view('admin.category.index', compact('category'));
     }
-
     public function create()
     {
         return view('admin.category.create');
     }
+
 
     public function store(CategoryFormRequest $request)
     {

@@ -1,8 +1,7 @@
 @extends('layouts.master')
 
-<s>
     @section('title', 'Category')
-</s>
+
 
 @section('content')
 
