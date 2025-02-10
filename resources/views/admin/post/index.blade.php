@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Category')
+@section('title', 'Posts')
 
 
 @section('content')
@@ -15,29 +15,37 @@
             </div>
             <div class="card-body">
                 @if (session('message'))
-                <div class="alert alert-success">{{ session('message') }}</div>
-            @endif
+                    <div class="alert alert-success">{{ session('message') }}</div>
+                @endif
 
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Category</th>
-                        <th>Post Name</th>
-                        <th>state</th>
-                    </tr>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Category</th>
+                            <th>Post Name</th>
+                            <th>State</th> 
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
                     <tbody>
                         @foreach ($posts as $item)
-                        <tr>
-                            <td>{{ $item->id }}</td>
-                            <td>{{ $item->category->name }}</td>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ $item->status == '1' ? 'Hidden' : 'Visible' }}</td>
-                        </tr>
+                            <tr>
+                                <td>{{ $item->id }}</td>
+                                <td>{{ $item->category->name }}</td>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ $item->status == '1' ? 'Hidden' : 'Visible' }}</td>
+                                <td>
+                                    <a href="{{ url('admin/post/' . $item->id) }}" class="btn btn-success">Edit</a>
+                                </td>
+                                <td>
+                                    <a href="{{ url('admin/delete-post/' . $item->id) }}" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
-                </thead>
-            </table>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
