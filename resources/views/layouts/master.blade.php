@@ -17,6 +17,8 @@
     {{-- summernote CSS Link --}}
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="//cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css">
 </head>
 
 <body>
@@ -43,6 +45,10 @@
                 });
                 $('.dropdown-toggle').dropdown();
             });
+        </script>
+        <script src="//cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+        <script>
+            let table = new DataTable('#myDataTable');
         </script>
 </body>
 
