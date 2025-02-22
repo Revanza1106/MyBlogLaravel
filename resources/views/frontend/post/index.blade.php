@@ -6,21 +6,16 @@
             <div class="category-heading text-center p-3">
                 <h1>{{ $category->name }}</h1>
             </div>
-
             <div class="row justify-content-center">
                 @forelse ($post as $postitem)
                     <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="book-card">
-                            <a href="{{ url('Category/' . $category->slug . '/' . $postitem->slug) }}">
-                                <img src="{{ $category->image  }}" alt="{{ $postitem->name }}" class="book-cover">
-                            </a>
-                            <div class="book-info">
-                                <a href="{{ url('Category/' . $category->slug . '/' . $postitem->slug) }}" class="text-decoration-none text-dark">
-                                    <h4 class="fw-bold">{{ $postitem->name }}</h4>
-                                </a>
-                                <p class="mb-1">Oleh <strong>{{ $postitem->user->name}}</strong></p>
-                                <p class="publish-time">Dipublish pada: {{ date('d F Y', strtotime($postitem->created_at)) }}</p>
-                                <span class="category-badge">Kategori: {{ $category->name }}</span>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $postitem->name }}</h5>
+                                <p class="card-text">Oleh <strong>{{ $postitem->user->name }}</strong></p>
+                                <p class="card-text">Dipublish pada: {{ date('d F Y', strtotime($postitem->created_at)) }}</p>
+                                <p class="card-text">Kategori: {{ $category->name }}</p>
+                                <a href="{{ url('category/' . $category->slug . '/' . $postitem->slug) }}" class="btn btn-primary">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -33,6 +28,9 @@
                         </div>
                     </div>
                 @endforelse
+                <div class="your-paginate ">
+                    {{ $post->links() }}
+                    </div>
             </div>
         </div>
     </div>

@@ -18,11 +18,23 @@ class FrontendController extends Controller
     {
         $category = Category::where('slug', $category_slug)->where('status', '0')->first();
         if ($category) {
-            $post = Post::where('category_id', $category->id)->where('status', '0')->get();
+            $post = Post::where('category_id', $category->id)->where('status', '0')->paginate(15);
             return view('frontend.post.index', compact('post', 'category'));
         } else {
             return redirect('/');
         }
-        return view('frontend.index');
     }
+
+public function viewPost(string $category_slug,string $post_slug)
+{
+    $category = Category::where('slug', $category_slug)->where('status', '0')->first();
+    if ($category) {
+        $post = Post::where('category_id', $category->id)->where('slug',$post_slug)->where('status', '0')->first();
+        return view('frontend.post.view', compact('post'));
+    } else {
+        return redirect('/');
+    }
+}
+
+
 }

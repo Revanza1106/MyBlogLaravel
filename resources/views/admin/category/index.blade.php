@@ -44,7 +44,7 @@
                                 </td>
                                 <td>
                                     <a href="{{ url('admin/delete-category/'. $data->id) }}" class="btn btn-danger">Delete</a>
-                                </td>
+                                </td>//
                             </tr>
                         @endforeach
                     </tbody>
