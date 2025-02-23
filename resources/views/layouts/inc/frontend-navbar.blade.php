@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" ariel-current="page" href="{{ url("/") }}">Home</a>
+                    <a class="nav-link active" ariel-current="page" href="{{ url('/') }}">Home</a>
                 </li>
                 {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -35,8 +35,8 @@
                     $categories = App\Models\Category::where('navbar_status', '0')->where('status', '0')->get();
                 @endphp
                 @foreach ($categories as $cateitem)
-                    <li class="nav-item"> 
-                        <a class="nav-link" href="{{ url('Category/'.$cateitem->slug) }}">{{ $cateitem->name }}</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('Category/' . $cateitem->slug) }}">{{ $cateitem->name }}</a>
                     </li>
                 @endforeach
             </ul>
