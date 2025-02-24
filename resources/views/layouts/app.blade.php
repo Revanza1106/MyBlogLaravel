@@ -8,8 +8,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <title>@yield('title')</title>
+    <meta name="description" content="@yield("meta_description")">
+    <meta name="keyword" content="@yield("meta_keyword")">
+    <meta name="author" content="Yoru Manga">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
