@@ -41,32 +41,23 @@
         <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" ></script>
         <script src="{{ asset('assets/js/owl.carousel.min.js') }}" ></script>
         <script>
-          $(document).ready(function(){
-    $(".owl-carousel").owlCarousel({
-        loop: true,
-        margin: 10,
-        nav: true,
-        navText: [
-            "<i class='fa fa-chevron-left'></i>",
-            "<i class='fa fa-chevron-right'></i>"
-        ],
-        dots: true, 
-        autoplay: true, 
-        autoplayTimeout: 3000, 
-        autoplayHoverPause: true, 
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 3
-            },
-            1000: {
-                items: 5
-            }
-        }
-    });
-});
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                dots: false,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 4
+                    }
+                }
+            })
         </script>
     </div>
 </body>
