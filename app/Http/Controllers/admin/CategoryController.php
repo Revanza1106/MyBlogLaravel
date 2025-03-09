@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CategoryFormRequest;
 use App\Models\Category;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use App\Http\Requests\Admin\CategoryFormRequest;
 
 class CategoryController extends Controller
 {
@@ -91,9 +92,9 @@ class CategoryController extends Controller
         return redirect('admin/category')->with('message', 'Category updated successfully');
     }
 
-    public function destroy($category_id)
+    public function destroy(Request $request)
     {
-        $category = Category::find($category_id);
+        $category = Category::find($request -> category_delete_id);
         if ($category) {
             $destination = 'uploads/category/' . $category->image;
             if (File::exists($destination)) {

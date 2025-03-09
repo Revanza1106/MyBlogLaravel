@@ -45,11 +45,12 @@
                 });
                 $('.dropdown-toggle').dropdown();
             });
-        </script>
+        </script> 
         <script src="//cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
         <script>
             let table = new DataTable('#myDataTable');
         </script>
+        @yield('scripts')
 </body>
 
 </html>
